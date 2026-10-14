@@ -6,10 +6,13 @@ import 'package:street_bite/core/routing/router_generation_config.dart';
 import 'package:street_bite/core/theme/app_theme.dart';
 import 'package:street_bite/core/theme/cubit/theme_cubit.dart';
 import 'package:street_bite/injection.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await setupServiceLocator();
   await EasyLocalization.ensureInitialized();
 
