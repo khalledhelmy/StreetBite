@@ -9,5 +9,27 @@
         "subtitle3": "Get excting discounts and offers on your favorite meals."
     },
     "next": "Next",
-    "skip": "Skip"
+    "skip": "Skip",
+    "errors": {
+        "network": "No internet connection",
+        "timeout": "Connection timed out, please try again",
+        "server": "Server error, please try again later",
+        "bad_request": "Invalid request",
+        "unauthorized": "Session expired, please sign in again",
+        "forbidden": "You don't have permission to do this",
+        "not_found": "The requested item was not found",
+        "cancelled": "Request cancelled",
+        "unexpected": "Something went wrong"
+    },
+    "auth_errors": {
+        "email_in_use": "This email is already registered",
+        "invalid_email": "Invalid email address",
+        "weak_password": "Password is too weak (use at least 6 characters)",
+        "invalid_credentials": "Incorrect email or password",
+        "user_disabled": "This account has been disabled",
+        "too_many_requests": "Too many attempts, try again later",
+        "operation_not_allowed": "Email/password sign-in is not enabled",
+        "requires_recent_login": "Please sign in again to continue",
+        "failed": "Authentication failed"
+    }
 }
