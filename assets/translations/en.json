@@ -1,1 +1,13 @@
-{}
+{
+    "app_ame": "Street Bite",
+    "onboarding": {
+        "title1": "Discover your favorite meals",
+        "title2": "Fast and easy ordering",
+        "title3": "Hot offers just for you",
+        "subtitle1": "Explore thousands of delicious meals from around the world.",
+        "subtitle2": "Order your favorite meals quickly and easily with just a few taps.",
+        "subtitle3": "Get excting discounts and offers on your favorite meals."
+    },
+    "next": "Next",
+    "skip": "Skip"
+}
