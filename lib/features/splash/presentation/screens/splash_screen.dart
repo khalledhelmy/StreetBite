@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:street_bite/core/constants/app_assets.dart';
 import 'package:street_bite/core/routing/app_routes.dart';
+import 'package:street_bite/core/storage/shared_pref_helper.dart';
+import 'package:street_bite/injection.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -34,8 +36,14 @@ class _SplashScreenState extends State<SplashScreen>
 
   Future<void> _startAnimation() async {
     await _animationController.forward();
+    if (!mounted) return;
 
-    GoRouter.of(context).pushReplacementNamed(AppRoutes.onBoardingScreen);
+    final isOnboardingCompleted = sl<SharedPrefHelper>().isOnboardingCompleted;
+    if (isOnboardingCompleted) {
+      GoRouter.of(context).pushReplacementNamed(AppRoutes.loginScreen);
+    } else {
+      GoRouter.of(context).pushReplacementNamed(AppRoutes.onBoardingScreen);
+    }
   }
 
   @override
