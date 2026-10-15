@@ -41,6 +41,8 @@ dependencies:
   get_it: ^9.3.0
   easy_localization: ^3.0.8 
   firebase_core: ^4.15.0
+  carousel_slider: ^5.1.2
+  dots_indicator: ^4.0.1
    
 dev_dependencies:
   flutter_test:
