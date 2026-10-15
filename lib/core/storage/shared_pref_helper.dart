@@ -10,4 +10,10 @@ class SharedPrefHelper {
 
   Future<void> updateThemeMode(String mode) =>
       _prefs.setString(SharedPrefKeys.themeMode, mode);
+
+  bool get isOnboardingCompleted =>
+      _prefs.getBool(SharedPrefKeys.isOnboardingCompleted) ?? false;
+
+  Future<void> setOnboardingCompleted() async =>
+      await _prefs.setBool(SharedPrefKeys.isOnboardingCompleted, true);
 }
