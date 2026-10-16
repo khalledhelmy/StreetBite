@@ -66,7 +66,7 @@ abstract final class AppTextStyles {
   static TextStyle titleMedium = TextStyle(
     fontFamily: AppFonts.inter,
     fontSize: 16.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     height: 1.5.h,
   );
 
