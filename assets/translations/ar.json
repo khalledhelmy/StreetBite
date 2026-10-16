@@ -32,5 +32,30 @@
         "operation_not_allowed": "تسجيل الدخول بالبريد وكلمة المرور غير مفعّل",
         "requires_recent_login": "يرجى تسجيل الدخول مرة أخرى للمتابعة",
         "failed": "فشلت المصادقة"
+    },
+    "auth": {
+        "title": "مرحبًا بعودتك!\nمرة أخرى!",
+        "sign_up_title": "مرحبًا! قم بالتسجيل للبدء",
+        "name": "الاسم الكامل",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirm_password": "تأكيد كلمة المرور",
+        "login": "تسجيل الدخول",
+        "no_account": "ليس لديك حساب؟ ",
+        "have_account": "لديك حساب بالفعل؟ ",
+        "sign_up": "إنشاء حساب"
+    },
+    "validators": {
+        "email_required": "أدخل بريدك الإلكتروني",
+        "email_invalid": "أدخل عنوان بريد إلكتروني صالحًا",
+        "password_required": "كلمة المرور مطلوبة",
+        "password_min_length": "يجب ألا تقل كلمة المرور عن 8 أحرف",
+        "password_complexity": "أضف حرفًا كبيرًا ورقمًا ورمزًا خاصًا",
+        "name_required": "الاسم الكامل مطلوب",
+        "name_min_length": "يجب ألا يقل الاسم الكامل عن 3 أحرف",
+        "name_capital_letter": "يجب أن يبدأ الاسم الكامل بحرف كبير",
+        "confirm_password_required": "أكد كلمة المرور",
+        "password_mismatch": "كلمتا المرور غير متطابقتين",
+        "post_required": "محتوى المنشور مطلوب"
     }
 }

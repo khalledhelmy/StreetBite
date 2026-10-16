@@ -32,5 +32,30 @@
         "operation_not_allowed": "Email/password sign-in is not enabled",
         "requires_recent_login": "Please sign in again to continue",
         "failed": "Authentication failed"
+    },
+    "auth": {
+        "title": "Welcome back!\nAgain!",
+        "sign_up_title": "Hello! Register to get started",
+        "name": "Full name",
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm password",
+        "login": "Login",
+        "no_account": "Don't have an account? ",
+        "have_account": "Already have an account? ",
+        "sign_up": "Sign Up"
+    },
+    "validators": {
+        "email_required": "Enter your email",
+        "email_invalid": "Enter a valid email address",
+        "password_required": "Password is required",
+        "password_min_length": "Password must be at least 8 characters",
+        "password_complexity": "Include an uppercase letter, a number, and a special character",
+        "name_required": "Full name is required",
+        "name_min_length": "Full name must be at least 3 characters",
+        "name_capital_letter": "Full name must start with a capital letter",
+        "confirm_password_required": "Confirm your password",
+        "password_mismatch": "Passwords do not match",
+        "post_required": "Post content is required"
     }
 }
