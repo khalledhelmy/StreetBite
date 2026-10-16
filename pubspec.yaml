@@ -43,6 +43,10 @@ dependencies:
   firebase_core: ^4.15.0
   carousel_slider: ^5.1.2
   dots_indicator: ^4.0.1
+  dartz: ^0.10.1
+  firebase_auth: ^6.7.0
+  equatable: ^3.0.0
+  dio: ^5.11.1
    
 dev_dependencies:
   flutter_test:
