@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:street_bite/core/routing/app_routes.dart';
+import 'package:street_bite/features/auth/presentation/screens/login_screen.dart';
+import 'package:street_bite/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:street_bite/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:street_bite/features/splash/presentation/screens/splash_screen.dart';
 
@@ -23,7 +25,18 @@ class RouterGenerationConfig {
       GoRoute(
         path: AppRoutes.loginScreen,
         name: AppRoutes.loginScreen,
-        builder: (context, state) => const Scaffold(),
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.signUpScreen,
+        name: AppRoutes.signUpScreen,
+        builder: (context, state) => const SignUpScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.mainScreen,
+        name: AppRoutes.mainScreen,
+        builder: (context, state) =>
+            const Scaffold(backgroundColor: Colors.amber),
       ),
     ],
   );
