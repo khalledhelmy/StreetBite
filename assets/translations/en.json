@@ -19,6 +19,7 @@
         "forbidden": "You don't have permission to do this",
         "not_found": "The requested item was not found",
         "cancelled": "Request cancelled",
+        "cache": "Unable to access cached data",
         "unexpected": "Something went wrong"
     },
     "auth_errors": {
