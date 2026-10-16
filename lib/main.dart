@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:street_bite/core/routing/router_generation_config.dart';
 import 'package:street_bite/core/theme/app_theme.dart';
 import 'package:street_bite/core/theme/cubit/theme_cubit.dart';
+import 'package:street_bite/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:street_bite/injection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -21,6 +22,7 @@ void main() async {
       supportedLocales: [Locale('en'), Locale('ar')],
       path: 'assets/translations',
       fallbackLocale: const Locale('en'),
+      saveLocale: true,
       child: const StreetBite(),
     ),
   );
@@ -39,6 +41,9 @@ class StreetBite extends StatelessWidget {
         return MultiBlocProvider(
           providers: [
             BlocProvider(create: (context) => sl<ThemeCubit>()..loadTheme()),
+            BlocProvider(
+              create: (context) => sl<AuthCubit>()..checkAuthStatus(),
+            ),
           ],
           child: BlocBuilder<ThemeCubit, ThemeMode>(
             builder: (context, themeMode) {
