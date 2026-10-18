@@ -6,6 +6,7 @@ import 'package:street_bite/core/routing/router_generation_config.dart';
 import 'package:street_bite/core/theme/app_theme.dart';
 import 'package:street_bite/core/theme/cubit/theme_cubit.dart';
 import 'package:street_bite/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:street_bite/features/home/presentation/cubit/meals_cubit.dart';
 import 'package:street_bite/injection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -44,6 +45,8 @@ class StreetBite extends StatelessWidget {
             BlocProvider(
               create: (context) => sl<AuthCubit>()..checkAuthStatus(),
             ),
+            BlocProvider(create: (context) => sl<MealsCubit>()),
+           
           ],
           child: BlocBuilder<ThemeCubit, ThemeMode>(
             builder: (context, themeMode) {
