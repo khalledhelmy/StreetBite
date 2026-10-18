@@ -18,7 +18,7 @@ class CustomSkipButton extends StatelessWidget {
 
         side: BorderSide(color: AppColors.primary),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(24.r),
+          borderRadius: BorderRadius.circular(24.r),
         ),
       ),
       onPressed: () async {
