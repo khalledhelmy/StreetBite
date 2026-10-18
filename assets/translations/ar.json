@@ -45,6 +45,25 @@
         "have_account": "لديك حساب بالفعل؟ ",
         "sign_up": "إنشاء حساب"
     },
+    "home": {
+        "greeting": "مرحبًا، {name}",
+        "greeting_guest": "مرحبًا!",
+        "prompt": "ماذا تود أن تأكل؟",
+        "search_hint": "ابحث عن الطعام والبقالة والمزيد",
+        "hot_offers": "عروض ساخنة",
+        "all_meals": "كل الوجبات",
+        "no_meals": "لم يتم العثور على وجبات",
+        "retry": "حاول مرة أخرى",
+        "add_to_cart": "أضف إلى السلة",
+        "added_to_cart": "تمت إضافة {name} إلى السلة",
+        "view_details": "عرض التفاصيل"
+    },
+    "navigation": {
+        "home": "الرئيسية",
+        "favourites": "المفضلة",
+        "cart": "السلة",
+        "profile": "الملف الشخصي"
+    },
     "validators": {
         "email_required": "أدخل بريدك الإلكتروني",
         "email_invalid": "أدخل عنوان بريد إلكتروني صالحًا",
