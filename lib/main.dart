@@ -46,7 +46,6 @@ class StreetBite extends StatelessWidget {
               create: (context) => sl<AuthCubit>()..checkAuthStatus(),
             ),
             BlocProvider(create: (context) => sl<MealsCubit>()),
-           
           ],
           child: BlocBuilder<ThemeCubit, ThemeMode>(
             builder: (context, themeMode) {
