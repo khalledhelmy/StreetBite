@@ -45,6 +45,25 @@
         "have_account": "Already have an account? ",
         "sign_up": "Sign Up"
     },
+    "home": {
+        "greeting": "Hello, {name}",
+        "greeting_guest": "Hello!",
+        "prompt": "What would you like to eat?",
+        "search_hint": "Search food, groceries & more",
+        "hot_offers": "Hot Offers",
+        "all_meals": "All meals",
+        "no_meals": "No meals found",
+        "retry": "Try again",
+        "add_to_cart": "Add to Cart",
+        "added_to_cart": "{name} added to cart",
+        "view_details": "View details"
+    },
+    "navigation": {
+        "home": "Home",
+        "favourites": "Favourite",
+        "cart": "Cart",
+        "profile": "Profile"
+    },
     "validators": {
         "email_required": "Enter your email",
         "email_invalid": "Enter a valid email address",

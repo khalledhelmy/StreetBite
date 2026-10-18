@@ -12,7 +12,7 @@ class CustomNextButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         fixedSize: Size(100.w, 45.h),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(24.r),
+          borderRadius: BorderRadius.circular(24.r),
         ),
       ),
       onPressed: onTap,

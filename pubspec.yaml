@@ -47,6 +47,9 @@ dependencies:
   firebase_auth: ^6.7.0
   equatable: ^3.0.0
   dio: ^5.11.1
+  pretty_dio_logger: ^1.4.0
+  cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
    
 dev_dependencies:
   flutter_test:
