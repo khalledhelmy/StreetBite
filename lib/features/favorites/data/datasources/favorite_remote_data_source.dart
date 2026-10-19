@@ -3,11 +3,12 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:street_bite/core/errors/error_handler.dart';
 import 'package:street_bite/core/errors/failures.dart';
+import 'package:street_bite/core/services/firestore_service.dart';
 import 'package:street_bite/features/home/data/models/meal_model.dart';
 import 'package:street_bite/features/home/domain/entities/meal_entity.dart';
 
 class FavoriteRemoteDataSource {
-  final FirebaseFirestore _firestore;
+  final FirestoreService _firestore;
   final FirebaseAuth _firebaseAuth;
 
   const FavoriteRemoteDataSource(this._firestore, this._firebaseAuth);
@@ -69,5 +70,5 @@ class FavoriteRemoteDataSource {
 
   CollectionReference<Map<String, dynamic>> _favoritesCollection(
     String userId,
-  ) => _firestore.collection('users').doc(userId).collection('favorites');
+  ) => _firestore.userCollection(userId, 'favorites');
 }

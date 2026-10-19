@@ -3,13 +3,14 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:street_bite/core/errors/error_handler.dart';
 import 'package:street_bite/core/errors/failures.dart';
+import 'package:street_bite/core/services/firestore_service.dart';
 import 'package:street_bite/features/cart/domain/entities/cart_item.dart';
 import 'package:street_bite/features/cart/domain/entities/payment_result.dart';
 
 class OrderRemoteDataSource {
-  const OrderRemoteDataSource(this._firestore, this._firebaseAuth);
+  const OrderRemoteDataSource(this._firestoreService, this._firebaseAuth);
 
-  final FirebaseFirestore _firestore;
+  final FirestoreService _firestoreService;
   final FirebaseAuth _firebaseAuth;
 
   Future<Either<Failure, String>> placeOrder({
@@ -52,5 +53,5 @@ class OrderRemoteDataSource {
   }
 
   CollectionReference<Map<String, dynamic>> _ordersCollection(String userId) =>
-      _firestore.collection('users').doc(userId).collection('orders');
+      _firestoreService.userCollection(userId, 'orders');
 }
