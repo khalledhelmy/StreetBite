@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:street_bite/core/widgets/custom_back_button.dart';
 import 'package:street_bite/core/widgets/spacing_widgets.dart';
+import 'package:street_bite/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:street_bite/features/home/domain/entities/meal_entity.dart';
 
 class MealDetailsScreen extends StatelessWidget {
@@ -28,7 +30,18 @@ class MealDetailsScreen extends StatelessWidget {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                context.read<CartCubit>().addMeal(meal);
+                ScaffoldMessenger.of(context)
+                  ..hideCurrentSnackBar()
+                  ..showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        'cart.added'.tr(namedArgs: {'name': meal.name}),
+                      ),
+                    ),
+                  );
+              },
               icon: const Icon(Icons.shopping_cart_outlined),
               label: Text('home.add_to_cart'.tr()),
             ),

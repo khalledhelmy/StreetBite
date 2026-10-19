@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:street_bite/core/routing/app_routes.dart';
 import 'package:street_bite/core/theme/extensions/theme_extensions.dart';
 import 'package:street_bite/core/widgets/spacing_widgets.dart';
+import 'package:street_bite/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:street_bite/features/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:street_bite/features/home/domain/entities/meal_entity.dart';
 
@@ -139,12 +140,13 @@ class MealCardWidget extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
+                    context.read<CartCubit>().addMeal(meal);
                     ScaffoldMessenger.of(context)
                       ..hideCurrentSnackBar()
                       ..showSnackBar(
                         SnackBar(
                           content: Text(
-                            'home.added_to_cart'.tr(
+                            'cart.added'.tr(
                               namedArgs: {'name': meal.name},
                             ),
                           ),
