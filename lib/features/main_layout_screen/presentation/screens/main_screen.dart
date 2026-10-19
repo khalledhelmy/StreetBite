@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:street_bite/core/theme/app_colors.dart';
+import 'package:street_bite/features/cart/presentation/screens/cart_screen.dart';
 import 'package:street_bite/features/favorites/presentation/screens/favorite_screen.dart';
 import 'package:street_bite/features/home/presentation/screens/home_screen.dart';
 
@@ -19,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
     List<Widget> screens = [
       HomeScreen(),
       FavoriteScreen(),
-      Container(color: AppColors.info),
+      CartScreen(),
       Container(color: AppColors.rating),
     ];
     return Scaffold(

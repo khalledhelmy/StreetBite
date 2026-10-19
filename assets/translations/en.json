@@ -69,6 +69,24 @@
         "cart": "Cart",
         "profile": "Profile"
     },
+    "cart": {
+        "title": "Your Cart",
+        "empty": "Your cart is empty",
+        "added": "{name} added to cart",
+        "remove": "Remove item",
+        "decrease_quantity": "Decrease quantity",
+        "increase_quantity": "Increase quantity",
+        "payment_method": "Payment method",
+        "cash_on_delivery": "Cash on delivery",
+        "simulated_card": "Card (simulated)",
+        "simulated_payment_note": "This is a simulation. No card will be charged.",
+        "total": "Total",
+        "line_total": "Subtotal",
+        "currency": "EGP",
+        "place_order": "Place order",
+        "order_placed": "Order placed successfully",
+        "order_failed": "Could not place your order"
+    },
     "validators": {
         "email_required": "Enter your email",
         "email_invalid": "Enter a valid email address",

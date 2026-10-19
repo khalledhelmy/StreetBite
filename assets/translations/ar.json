@@ -69,6 +69,24 @@
         "cart": "السلة",
         "profile": "الملف الشخصي"
     },
+    "cart": {
+        "title": "سلة التسوق",
+        "empty": "سلة التسوق فارغة",
+        "added": "تمت إضافة {name} إلى السلة",
+        "remove": "إزالة العنصر",
+        "decrease_quantity": "تقليل الكمية",
+        "increase_quantity": "زيادة الكمية",
+        "payment_method": "طريقة الدفع",
+        "cash_on_delivery": "الدفع نقدًا عند الاستلام",
+        "simulated_card": "بطاقة (محاكاة)",
+        "simulated_payment_note": "هذه محاكاة فقط. لن يتم خصم أي مبلغ من البطاقة.",
+        "total": "الإجمالي",
+        "line_total": "المجموع الفرعي",
+        "currency": "جنيه مصري",
+        "place_order": "تأكيد الطلب",
+        "order_placed": "تم تأكيد الطلب بنجاح",
+        "order_failed": "تعذر إتمام الطلب"
+    },
     "validators": {
         "email_required": "أدخل بريدك الإلكتروني",
         "email_invalid": "أدخل عنوان بريد إلكتروني صالحًا",

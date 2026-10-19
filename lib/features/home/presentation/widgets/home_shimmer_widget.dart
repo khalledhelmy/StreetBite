@@ -54,8 +54,8 @@ class HomeShimmerWidget extends StatelessWidget {
                 ),
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
-                separatorBuilder: (_, __) => SizedBox(width: 12.w),
-                itemBuilder: (_, __) {
+                separatorBuilder: (_, _) => SizedBox(width: 12.w),
+                itemBuilder: (_, _) {
                   return skeletonBox(width: 300.w, height: 170.h, radius: 12);
                 },
               ),
@@ -81,7 +81,7 @@ class HomeShimmerWidget extends StatelessWidget {
                 childAspectRatio: 0.72,
               ),
               itemCount: 6,
-              itemBuilder: (_, __) {
+              itemBuilder: (_, _) {
                 return Container(
                   decoration: BoxDecoration(
                     color: Colors.white,

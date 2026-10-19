@@ -5,6 +5,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:street_bite/core/networking/dio_helper.dart';
 import 'package:street_bite/core/storage/shared_pref_helper.dart';
 import 'package:street_bite/core/theme/cubit/theme_cubit.dart';
+import 'package:street_bite/features/cart/data/datasources/order_remote_data_source.dart';
+import 'package:street_bite/features/cart/data/repositories/order_repository_impl.dart';
+import 'package:street_bite/features/cart/domain/repositories/order_repository.dart';
+import 'package:street_bite/features/cart/domain/usecases/place_order.dart';
+import 'package:street_bite/features/cart/presentation/cubit/cart_cubit.dart';
 import 'package:street_bite/features/auth/data/datasources/firebase_auth_data_source.dart';
 import 'package:street_bite/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:street_bite/features/auth/domain/repositories/auth_repository.dart';
@@ -53,6 +58,9 @@ Future<void> setupServiceLocator() async {
   sl.registerLazySingleton<FavoriteRemoteDataSource>(
     () => FavoriteRemoteDataSource(sl<FirebaseFirestore>(), sl<FirebaseAuth>()),
   );
+  sl.registerLazySingleton<OrderRemoteDataSource>(
+    () => OrderRemoteDataSource(sl<FirebaseFirestore>(), sl<FirebaseAuth>()),
+  );
 
   // Repository
   sl.registerLazySingleton<AuthRepository>(
@@ -63,6 +71,9 @@ Future<void> setupServiceLocator() async {
   );
   sl.registerLazySingleton<FavoritesRepository>(
     () => FavoriteRepositoryImpl(sl<FavoriteRemoteDataSource>()),
+  );
+  sl.registerLazySingleton<OrderRepository>(
+    () => OrderRepositoryImpl(sl<OrderRemoteDataSource>()),
   );
 
   // Usecases
@@ -87,6 +98,7 @@ Future<void> setupServiceLocator() async {
   sl.registerLazySingleton<RemoveFavorite>(
     () => RemoveFavorite(sl<FavoritesRepository>()),
   );
+  sl.registerLazySingleton<PlaceOrder>(() => PlaceOrder(sl<OrderRepository>()));
 
   // Cubits
   sl.registerLazySingleton<ThemeCubit>(
@@ -113,4 +125,5 @@ Future<void> setupServiceLocator() async {
       removeFavorite: sl<RemoveFavorite>(),
     ),
   );
+  sl.registerFactory<CartCubit>(() => CartCubit(placeOrder: sl<PlaceOrder>()));
 }
