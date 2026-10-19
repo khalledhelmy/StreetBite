@@ -58,6 +58,11 @@
         "added_to_cart": "{name} added to cart",
         "view_details": "View details"
     },
+    "favorites": {
+        "title": "Favorites",
+        "empty": "You haven't added any favorites yet",
+        "retry": "Try again"
+    },
     "navigation": {
         "home": "Home",
         "favourites": "Favourite",
