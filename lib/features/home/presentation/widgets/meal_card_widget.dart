@@ -3,6 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:street_bite/core/routing/app_routes.dart';
 import 'package:street_bite/core/theme/extensions/theme_extensions.dart';
 import 'package:street_bite/core/widgets/spacing_widgets.dart';
 import 'package:street_bite/features/favorites/presentation/cubit/favorites_cubit.dart';
@@ -42,21 +44,26 @@ class MealCardWidget extends StatelessWidget {
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(12.r),
                     ),
-                    child: CachedNetworkImage(
-                      imageUrl: meal.thumbnail,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      placeholder: (context, url) => ColoredBox(
-                        color: Theme.of(
-                          context,
-                        ).colorScheme.surfaceContainerHighest,
-                        child: const Center(child: CircularProgressIndicator()),
-                      ),
-                      errorWidget: (context, url, error) => ColoredBox(
-                        color: Theme.of(
-                          context,
-                        ).colorScheme.surfaceContainerHighest,
-                        child: const Center(child: Icon(Icons.restaurant)),
+                    child: Hero(
+                      tag: 'meal-card-${meal.id}',
+                      child: CachedNetworkImage(
+                        imageUrl: meal.thumbnail,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        placeholder: (context, url) => ColoredBox(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.surfaceContainerHighest,
+                          child: const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => ColoredBox(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.surfaceContainerHighest,
+                          child: const Center(child: Icon(Icons.restaurant)),
+                        ),
                       ),
                     ),
                   ),
@@ -155,7 +162,17 @@ class MealCardWidget extends StatelessWidget {
           Center(
             child: OutlinedButton(
               style: OutlinedButton.styleFrom(fixedSize: Size(160.w, 40.h)),
-              onPressed: () {},
+              onPressed: () {
+                GoRouter.of(
+                  context,
+                ).pushNamed(
+                  AppRoutes.mealDetailsScreen,
+                  extra: (
+                    meal: meal,
+                    heroTag: 'meal-card-${meal.id}',
+                  ),
+                );
+              },
               child: Text('home.view_details'.tr()),
             ),
           ),
