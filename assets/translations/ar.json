@@ -58,6 +58,11 @@
         "added_to_cart": "تمت إضافة {name} إلى السلة",
         "view_details": "عرض التفاصيل"
     },
+    "favorites": {
+        "title": "المفضلة",
+        "empty": "لم تضف أي وجبات إلى المفضلة بعد",
+        "retry": "حاول مرة أخرى"
+    },
     "navigation": {
         "home": "الرئيسية",
         "favourites": "المفضلة",

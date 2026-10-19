@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:street_bite/core/theme/app_colors.dart';
+import 'package:street_bite/features/favorites/presentation/screens/favorite_screen.dart';
 import 'package:street_bite/features/home/presentation/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     List<Widget> screens = [
       HomeScreen(),
-      Container(color: AppColors.success),
+      FavoriteScreen(),
       Container(color: AppColors.info),
       Container(color: AppColors.rating),
     ];
