@@ -1,8 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:street_bite/core/networking/dio_helper.dart';
+import 'package:street_bite/core/services/biometric_service.dart';
+import 'package:street_bite/core/services/firestore_service.dart';
 import 'package:street_bite/core/storage/shared_pref_helper.dart';
 import 'package:street_bite/core/theme/cubit/theme_cubit.dart';
 import 'package:street_bite/features/cart/data/datasources/order_remote_data_source.dart';
@@ -31,6 +32,9 @@ import 'package:street_bite/features/home/domain/repositories/meal_repository.da
 import 'package:street_bite/features/home/domain/usecases/get_meals_use_case.dart';
 import 'package:street_bite/features/home/domain/usecases/search_meals_use_case.dart';
 import 'package:street_bite/features/home/presentation/cubit/meals_cubit.dart';
+import 'package:street_bite/features/profile/data/datasources/profile_remote_data_source.dart';
+import 'package:street_bite/features/profile/data/repositories/profile_repository_impl.dart';
+import 'package:street_bite/features/profile/domain/repositories/profile_repository.dart';
 
 final sl = GetIt.instance;
 
@@ -46,7 +50,8 @@ Future<void> setupServiceLocator() async {
 
   // Firebase
   sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
-  sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
+  sl.registerLazySingleton<BiometricService>(() => BiometricService());
+  sl.registerSingleton<FirestoreService>(FirestoreService());
 
   // Data Sources
   sl.registerLazySingleton<FirebaseAuthDataSource>(
@@ -56,10 +61,13 @@ Future<void> setupServiceLocator() async {
     () => MealRemoteDataSource(sl<DioHelper>(), sl<SharedPrefHelper>()),
   );
   sl.registerLazySingleton<FavoriteRemoteDataSource>(
-    () => FavoriteRemoteDataSource(sl<FirebaseFirestore>(), sl<FirebaseAuth>()),
+    () => FavoriteRemoteDataSource(sl<FirestoreService>(), sl<FirebaseAuth>()),
   );
   sl.registerLazySingleton<OrderRemoteDataSource>(
-    () => OrderRemoteDataSource(sl<FirebaseFirestore>(), sl<FirebaseAuth>()),
+    () => OrderRemoteDataSource(sl<FirestoreService>(), sl<FirebaseAuth>()),
+  );
+  sl.registerLazySingleton<ProfileRemoteDataSource>(
+    () => ProfileRemoteDataSource(sl<FirestoreService>()),
   );
 
   // Repository
@@ -74,6 +82,9 @@ Future<void> setupServiceLocator() async {
   );
   sl.registerLazySingleton<OrderRepository>(
     () => OrderRepositoryImpl(sl<OrderRemoteDataSource>()),
+  );
+  sl.registerLazySingleton<ProfileRepository>(
+    () => ProfileRepositoryImpl(sl<ProfileRemoteDataSource>()),
   );
 
   // Usecases
