@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:street_bite/core/theme/extensions/theme_extensions.dart';
 import 'package:street_bite/core/widgets/spacing_widgets.dart';
+import 'package:street_bite/features/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:street_bite/features/home/domain/entities/meal_entity.dart';
 
 class MealCardWidget extends StatelessWidget {
@@ -61,22 +63,41 @@ class MealCardWidget extends StatelessWidget {
                   Positioned(
                     right: 5.w,
                     top: 5.h,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 40.w,
-                        height: 40.w,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Theme.of(
-                            context,
-                          ).colorScheme.primary.withAlpha(180),
-                        ),
-                        child: Icon(
-                          Icons.favorite_outline,
-                          color: Theme.of(context).colorScheme.onPrimary,
-                        ),
-                      ),
+                    child: BlocBuilder<FavoritesCubit, FavoritesState>(
+                      builder: (context, state) {
+                        final isFavorite =
+                            state is FavoritesLoaded &&
+                            state.favorites.any(
+                              (favorite) => favorite.id == meal.id,
+                            );
+
+                        return InkWell(
+                          onTap: () {
+                            final cubit = context.read<FavoritesCubit>();
+                            if (isFavorite) {
+                              cubit.removeFavorite(meal.id);
+                            } else {
+                              cubit.addFavorite(meal);
+                            }
+                          },
+                          child: Container(
+                            width: 40.w,
+                            height: 40.w,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.primary.withAlpha(180),
+                            ),
+                            child: Icon(
+                              isFavorite
+                                  ? Icons.favorite
+                                  : Icons.favorite_outline,
+                              color: Theme.of(context).colorScheme.onPrimary,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
